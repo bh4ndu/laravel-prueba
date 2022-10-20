@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\UsuariosController; 
 use App\http\Controllers\ProductoController; 
 use App\http\Controllers\HenriController; 
-
+use App\http\Controllers\PedidosController; 
 
 /* 
 |--------------------------------------------------------------------------
@@ -17,6 +17,12 @@ use App\http\Controllers\HenriController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//creamos una ruta para listar pedidos
+
+route::get('/pedidos',
+[PedidosController::class, 'listar']    
+);
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +44,4 @@ route::get('/productos',
 route::get('/henri',
     [HenriController::class, 'listar']
 );
+
